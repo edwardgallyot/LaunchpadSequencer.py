@@ -3,6 +3,8 @@ import time
 import random
 
 # Global Midi Parameters with RtMidi
+# You can find your midi ports on your own computer using the .get_ports() method on a rtmidi object in a Python console
+
 midi_out = rtmidi.MidiOut()
 midi_out.open_port(0)
 midi_in = rtmidi.MidiIn()
@@ -20,6 +22,7 @@ class Launchpad:
     meter = 7
     notes_on = {}
     column_on = {}
+    #Here are some global MIDI parameters for the Launchpad MK1 which made sense to have as class variables.
     make_blank = 0
     make_red = 15
     make_green = 60
@@ -28,6 +31,7 @@ class Launchpad:
     send_off = 0x80
 
     # The Launchpad Objects sends and recieves MIDI to the lights of the launchpad
+    
     def __init__(self, message, note, velocity):
         if message == True:
             self.message = self.send_on
